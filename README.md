@@ -2,7 +2,7 @@
 
 A basic conceptional structure (as of ideas) that capture something real and do this in a way that is easy to remember and apply. As opposed to a reading list, or collection of links that one must go through and read - this testing framework aims to provide a set of guidelines or act as a thinking device, in combination with good practices and tools that are designed to help QA professionals test more efficiently. As a model, it makes rather gross simplification to clarify a more complex set of dynamics. And more precisely, turn a weighted bidirected graph into a tree, with the clear notion of the accuracy vs simplicity trade-off.
 
-[Click here](https://ekostadinov.github.io/human-driven-testing-framework/) to view it live (GitHub Pages).
+[Click here](https://ekostadinov.github.io/software-testing-meta-framework/) to view it live (GitHub Pages).
 
 As a **meta**-framework, it essentially defines methods of context-aware and scalable abstractions for solving QA strategy problems involving multiple pieces. It describes how to create a framework that can manage and execute other frameworks, while supporting them in a common manner. Also, provides a way to manage the increasingly complex testing needs by providing a middle ground between the various tools and frameworks, and the test case management system.  This allows for easily extensibility for new (automation) tools that need to be incorporated into a larger QA strategy. As a meta-build tool, it is capable of building many different projects using a subset of existing tesing solutions.
 
