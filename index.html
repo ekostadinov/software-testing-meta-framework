@@ -1,0 +1,2210 @@
+<!DOCTYPE html>
+<br lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=1000; user-scalable=1; initial-scale=0.5" />
+   <!-- <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"> -->
+   <!-- heritige left-ove sign -->
+   <title>Human-driven Testing Framework</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <script>
+      function showMapDetails() {
+         var details = document.getElementsByClassName('details')
+         for (var i = 0, il = details.length; i < il; i++) {
+            details[i].style.visibility = "visible";
+         }
+      }
+   </script>
+   <script>
+      function showMapLinks() {
+         var links = document.getElementsByClassName('fa-external-link')
+         for (var i = 0, il = links.length; i < il; i++) {
+            links[i].style.visibility = "visible";
+         }
+      }
+   </script>
+   <script>
+      // wizard
+      function loadWizard() {
+
+         var ul = document.getElementsByClassName("wizard")[0];
+         // var steps = ul.children;
+         var steps = document.getElementsByTagName("li");
+
+         for (var i = 0; i < steps.length; i++) {
+            steps[i].addEventListener("click", function () {
+               var stepsArr = this.parentElement.children;
+
+               for (var j = 0; j < stepsArr.length; j++) {
+                  stepsArr[j].classList.remove('active');
+                  this.className = "active";
+               }
+            });
+         }
+      };
+   </script>
+   <script>
+      function showTeam() {
+         var teamDiv = document.getElementsByClassName('team')[0];
+         teamDiv.style.opacity = 1;
+         teamDiv.scrollIntoView()
+      };
+   </script>
+   <script>
+      function showPlan() {
+         var planDiv = document.getElementsByClassName('plan')[0];
+         planDiv.style.opacity = 1;
+         planDiv.scrollIntoView()
+      };
+   </script>
+   <script>
+      function showAct() {
+         var activityDiv = document.getElementsByClassName('activity')[0];
+         activityDiv.style.opacity = 1;
+         window.scrollTo(0, 9999);
+      };
+   </script>
+   <script>
+      function changeTheme() {
+         var bodyElem = document.getElementsByTagName('body')[0];
+         var bodyBckgrdColor = window.getComputedStyle(bodyElem, null).getPropertyValue("background-color");
+         if (bodyBckgrdColor.includes('255')) {
+            bodyElem.style.backgroundColor = '#1c2754';
+            bodyElem.style.color = 'white';
+            document.getElementsByClassName('switch-handle')[0].style.marginLeft = '-1.5px';
+         }
+         else if (document.getElementsByClassName('switch-input')[0].checked) {
+            bodyElem.style.backgroundColor = 'white';
+            bodyElem.style.color = 'black';
+            document.getElementsByClassName('switch-handle')[0].style.marginLeft = '5.5px';
+         }
+      }
+   </script>
+   <style>
+      /* Base #3f3f3f */
+      * {
+         margin: 0px;
+         padding: 0px;
+      }
+
+      body {
+         background-color: white;
+         padding-bottom: 50px;
+      }
+
+      /* edges */
+      #edge1 {
+         position: absolute;
+         top: 290px;
+         left: 471px;
+         width: 76px;
+         height: 4px;
+         background: #736CA8;
+         transform: rotate(90deg);
+         z-index: -1;
+      }
+
+      .edge1:after {
+         border-top: 20px solid #736CA8;
+         border-left: 15px solid transparent;
+         border-right: 15px solid transparent;
+         bottom: 0px;
+         content: "";
+         position: absolute;
+         left: 515px;
+         margin-left: -21px;
+         width: 0;
+         height: 0;
+         top: 330px;
+      }
+
+      #edge4 {
+         position: absolute;
+         top: 548px;
+         left: 429px;
+         width: 161px;
+         height: 4px;
+         background: #E85642;
+         transform: rotate(90deg);
+         z-index: -1;
+      }
+
+      .edge4:after {
+         border-top: 20px solid #E85642;
+         border-left: 15px solid transparent;
+         border-right: 15px solid transparent;
+         bottom: 0px;
+         content: "";
+         position: absolute;
+         left: 515px;
+         margin-left: -21px;
+         width: 0;
+         height: 0;
+         top: 630px;
+      }
+
+      #edge2 {
+         position: absolute;
+         top: 380px;
+         left: 325px;
+         width: 180px;
+         height: 2px;
+         background: #A29DC5;
+         transform: rotate(25deg);
+         z-index: -1;
+      }
+
+      #edge3 {
+         position: absolute;
+         top: 380px;
+         left: 550px;
+         width: 70px;
+         z-index: -1;
+         transform: rotate(145deg);
+         height: 2px;
+         background: #A29DC5;
+      }
+
+      #edge5 {
+         position: absolute;
+         top: 929px;
+         left: 362px;
+         width: 295px;
+         height: 4px;
+         background: #F08705;
+         transform: rotate(90deg);
+         z-index: -1;
+      }
+
+      .edge5:after {
+         border-top: 20px solid #F08705;
+         border-left: 15px solid transparent;
+         border-right: 15px solid transparent;
+         bottom: 0px;
+         content: "";
+         position: absolute;
+         left: 515px;
+         margin-left: -21px;
+         width: 0;
+         height: 0;
+         top: 1078px;
+      }
+
+      #edge6 {
+         position: absolute;
+         top: 439px;
+         left: 535px;
+         width: 90px;
+         height: 2px;
+         background: #A29DC5;
+         transform: rotate(195deg);
+         z-index: -1;
+      }
+
+      #edge7 {
+         position: absolute;
+         top: 490px;
+         left: 530px;
+         width: 90px;
+         height: 2px;
+         background: #A29DC5;
+         transform: rotate(225deg);
+         z-index: -1;
+      }
+
+      #edge8 {
+         position: absolute;
+         top: 635px;
+         left: 395px;
+         width: 90px;
+         height: 2px;
+         background: #F08E81;
+         transform: rotate(45deg);
+         z-index: -1;
+      }
+
+      #edge10 {
+         position: absolute;
+         top: 640px;
+         left: 535px;
+         width: 90px;
+         height: 2px;
+         background: #F08E81;
+         transform: rotate(-45deg);
+         z-index: -1;
+      }
+
+      #edge12 {
+         position: absolute;
+         top: 700px;
+         left: 555px;
+         width: 90px;
+         height: 2px;
+         background: #F08E81;
+         transform: rotate(-25deg);
+         z-index: -1;
+      }
+
+      #edge13 {
+         position: absolute;
+         top: 770px;
+         left: 565px;
+         width: 40px;
+         height: 2px;
+         background: #F08E81;
+         transform: rotate(45deg);
+         z-index: -1;
+      }
+
+      #edge14 {
+         position: absolute;
+         top: 815px;
+         left: 518px;
+         width: 90px;
+         height: 2px;
+         background: #F08E81;
+         transform: rotate(60deg);
+         z-index: -1;
+      }
+
+      #edge15 {
+         position: absolute;
+         top: 1098px;
+         left: 523px;
+         width: 130px;
+         height: 2px;
+         background: #F5AF58;
+         transform: rotate(-45deg);
+         z-index: -1;
+      }
+
+      #edge16 {
+         position: absolute;
+         top: 1065px;
+         left: 493px;
+         width: 105px;
+         height: 2px;
+         background: #F5AF58;
+         transform: rotate(-75deg);
+         z-index: -1;
+      }
+
+      #edge17 {
+         position: absolute;
+         top: 1090px;
+         left: 430px;
+         width: 105px;
+         height: 2px;
+         background: #F5AF58;
+         transform: rotate(-110deg);
+         z-index: -1;
+      }
+
+      #edge9 {
+         position: absolute;
+         top: 183px;
+         left: 362px;
+         width: 100px;
+         height: 2px;
+         background: #64BBE2;
+         transform: rotate(190deg);
+         z-index: -1;
+      }
+
+      #edge11 {
+         position: absolute;
+         top: 165px;
+         left: 550px;
+         width: 70px;
+         height: 2px;
+         background: #64BBE2;
+         transform: rotate(-25deg);
+         z-index: -1;
+      }
+
+      #edge18 {
+         position: absolute;
+         top: 240px;
+         left: 550px;
+         width: 70px;
+         height: 2px;
+         background: #64BBE2;
+         transform: rotate(25deg);
+         z-index: -1;
+      }
+
+      @keyframes edgeAni {
+
+         0%,
+         100% {
+            background: #848484;
+         }
+
+         50% {
+            background: #4f4f4f;
+         }
+      }
+
+      /* nodes */
+      /* Context */
+      #node1 {
+         position: absolute;
+         top: 130px;
+         left: 340px;
+         width: 80px;
+         height: 80px;
+         background: #64BBE2;
+         border-radius: 50%;
+      }
+
+      #node1 div {
+         color: white;
+         margin-left: 15px;
+      }
+
+      .details {
+         font-size: .85em;
+         position: absolute;
+         min-width: 300px;
+         visibility: hidden;
+      }
+
+      .node1.details {
+         top: 120px;
+         margin-left: 175px;
+      }
+
+      #node2 {
+         position: absolute;
+         top: 135px;
+         left: 450px;
+         width: 120px;
+         height: 120px;
+         background: #1699D3;
+         border-radius: 50%;
+      }
+
+      #node2 div {
+         color: white;
+         font-size: 1.75em;
+         margin-top: 45px;
+         margin-left: 15px;
+      }
+
+      .node2.details {
+         margin-left: 85px;
+         margin-top: 117px;
+      }
+
+      #node3 {
+         position: absolute;
+         top: 213px;
+         left: 297px;
+         width: 70px;
+         height: 70px;
+         background: #64BBE2;
+         border-radius: 50%;
+      }
+
+      #node3 div {
+         color: white;
+         margin-left: 7.5px;
+      }
+
+      #node36 {
+         position: absolute;
+         top: 115px;
+         left: 585px;
+         width: 82.5px;
+         height: 82.5px;
+         background: #64BBE2;
+         border-radius: 50%;
+      }
+
+      #node36 div {
+         color: white;
+         margin-left: 22.5px;
+         margin-top: 5px;
+      }
+
+      .node36.details {
+         margin-left: 691px;
+         margin-top: 0px;
+      }
+
+      #node37 {
+         position: absolute;
+         top: 166px;
+         left: 678px;
+         width: 72px;
+         height: 72px;
+         background: #64BBE2;
+         border-radius: 50%;
+      }
+
+      #node37 div {
+         color: white;
+         margin-left: 15px;
+         margin-top: 5px;
+      }
+
+      .node37.details {
+         margin-left: 752px;
+         margin-top: 72px;
+      }
+
+      #node38 {
+         position: absolute;
+         top: 210px;
+         left: 585px;
+         width: 85px;
+         height: 85px;
+         background: #64BBE2;
+         border-radius: 50%;
+      }
+
+      #node38 div {
+         color: white;
+         margin-left: 13px;
+         margin-top: 21px;
+      }
+
+      .node38.details {
+         margin-left: 670px;
+         margin-top: 130px;
+      }
+
+      /* Team */
+      #node4 {
+         position: absolute;
+         top: 315px;
+         left: 270px;
+         width: 85px;
+         height: 85px;
+         background: #A29DC5;
+         border-radius: 50%;
+      }
+
+      #node4 div {
+         color: white;
+         margin-top: 25px;
+         margin-left: 5px;
+      }
+
+      .node4.details {
+         top: 397px;
+         margin-left: 328px;
+      }
+
+      #node7 {
+         position: absolute;
+         top: 405px;
+         left: 240px;
+         width: 70px;
+         height: 70px;
+         background: #A29DC5;
+         border-radius: 50%;
+      }
+
+      #node7 div {
+         color: white;
+         margin-left: 10px;
+      }
+
+      .node7.details {
+         top: 447px;
+         margin-left: 311px;
+      }
+
+      #node8 {
+         position: absolute;
+         top: 481px;
+         left: 224px;
+         width: 95px;
+         height: 95px;
+         background: #A29DC5;
+         border-radius: 50%;
+      }
+
+      #node8 div {
+         color: white;
+         margin-left: 20px;
+      }
+
+      .node8.details {
+         top: 512px;
+         margin-left: 325px;
+      }
+
+      #node9 {
+         position: absolute;
+         top: 405px;
+         left: 610px;
+         width: 80px;
+         height: 80px;
+         background: #A29DC5;
+         border-radius: 50%;
+      }
+
+      #node9 div {
+         color: white;
+         margin-top: 12.5px;
+         margin-left: 10px;
+      }
+
+      .node9.details {
+         top: 425px;
+         margin-left: 693px;
+      }
+
+      #node10 {
+         position: absolute;
+         top: 485px;
+         left: 582px;
+         width: 75px;
+         height: 75px;
+         background: #A29DC5;
+         border-radius: 50%;
+      }
+
+      #node10 div {
+         color: white;
+         margin-left: 6.5px;
+      }
+
+      .node10.details {
+         top: 508px;
+         margin-left: 658px;
+      }
+
+      #node5 {
+         position: absolute;
+         top: 350px;
+         left: 450px;
+         width: 120px;
+         height: 120px;
+         background: #736CA8;
+         border-radius: 50%;
+      }
+
+      #node5 div {
+         color: white;
+         font-size: 1.75em;
+         margin-top: 45px;
+         margin-left: 30px;
+      }
+
+      #node6 {
+         position: absolute;
+         top: 310px;
+         left: 591px;
+         width: 95px;
+         height: 95px;
+         background: #A29DC5;
+         border-radius: 50%;
+      }
+
+      #node6 div {
+         color: white;
+         margin-top: 10px;
+         margin-left: 5px;
+      }
+
+      .node6.details {
+         top: 325px;
+         margin-left: 685px;
+      }
+
+      /* Test plan and strategy */
+      #node11 {
+         position: absolute;
+         top: 650px;
+         left: 450px;
+         width: 135px;
+         height: 135px;
+         background: #E85642;
+         border-radius: 50%;
+      }
+
+      #node11 div {
+         color: white;
+         font-size: 1.75em;
+         margin-top: 20px;
+         margin-left: 20px;
+      }
+
+      #node12 {
+         position: absolute;
+         top: 717px;
+         left: 285px;
+         width: 65px;
+         height: 65px;
+         background: #F08E81;
+         border-radius: 50%;
+      }
+
+      #node12 div {
+         color: white;
+         margin-top: -5px;
+         margin-left: 11.5px;
+      }
+
+      .node12.details {
+         top: 722px;
+         margin-left: 26px;
+      }
+
+      #node13 {
+         position: absolute;
+         top: 580px;
+         left: 373px;
+         width: 60px;
+         height: 60px;
+         background: #F08E81;
+         border-radius: 50%;
+      }
+
+      #node13 div {
+         color: white;
+         margin-top: 20px;
+         margin-left: 15px;
+      }
+
+      .node13.details {
+         top: 592px;
+         margin-left: 240px;
+      }
+
+      #node14 {
+         position: absolute;
+         top: 790px;
+         left: 237px;
+         width: 70px;
+         height: 70px;
+         background: #F08E81;
+         border-radius: 50%;
+      }
+
+      #node14 div {
+         color: white;
+         margin-top: 25px;
+         margin-left: 3px;
+      }
+
+      .node14.details {
+         top: 806px;
+         margin-left: 136px;
+      }
+
+      #node15 {
+         position: absolute;
+         top: 650px;
+         left: 335px;
+         width: 65px;
+         height: 65px;
+         background: #F08E81;
+         border-radius: 50%;
+      }
+
+      #node15 div {
+         color: white;
+         margin-top: 10px;
+         margin-left: 5px;
+      }
+
+      .node15.details {
+         top: 664px;
+         margin-left: 130px;
+      }
+
+      #node16 {
+         position: absolute;
+         top: 865px;
+         left: 207px;
+         width: 110px;
+         height: 110px;
+         background: #F08E81;
+         border-radius: 50%;
+      }
+
+      #node16 div {
+         color: white;
+         margin-top: 12.5px;
+         margin-left: 5px;
+      }
+
+      .node16.details {
+         top: 893px;
+         margin-left: 98px;
+      }
+
+      #node17 {
+         position: absolute;
+         top: 860px;
+         left: 365px;
+         width: 85px;
+         height: 85px;
+         background: #F08E81;
+         border-radius: 50%;
+      }
+
+      #node17 div {
+         color: white;
+         margin-top: 25px;
+         margin-left: 10px;
+      }
+
+      .node17.details {
+         top: 844px;
+         margin-left: 337px;
+      }
+
+      #node18 {
+         position: absolute;
+         top: 580px;
+         left: 560px;
+         width: 70px;
+         height: 70px;
+         background: #F08E81;
+         border-radius: 50%;
+      }
+
+      #node18 div {
+         color: white;
+         margin-top: 15px;
+         margin-left: 10px;
+      }
+
+      .node18.details {
+         top: 597px;
+         margin-left: 643px;
+      }
+
+      #node19 {
+         position: absolute;
+         top: 658px;
+         left: 622px;
+         width: 55px;
+         height: 55px;
+         background: #F08E81;
+         border-radius: 50%;
+      }
+
+      #node19 div {
+         color: white;
+         margin-top: 20px;
+         margin-left: 10px;
+      }
+
+      .node19.details {
+         top: 711px;
+         margin-left: 615px;
+      }
+
+      #node20 {
+         position: absolute;
+         top: 642px;
+         left: 721px;
+         width: 80px;
+         height: 80px;
+         background: #F08E81;
+         border-radius: 50%;
+      }
+
+      #node20 div {
+         color: white;
+         margin-top: 30px;
+         margin-left: 2.5px;
+      }
+
+      .node20.details {
+         top: 667px;
+         margin-left: 805px;
+      }
+
+      #node21 {
+         position: absolute;
+         top: 750px;
+         left: 590px;
+         width: 70px;
+         height: 70px;
+         background: #F08E81;
+         border-radius: 50%;
+      }
+
+      #node21 div {
+         color: white;
+         margin-top: 20px;
+         margin-left: 8px;
+      }
+
+      .node21.details {
+         top: 798px;
+         margin-left: 656px;
+      }
+
+      #node22 {
+         position: absolute;
+         top: 745px;
+         left: 719px;
+         width: 95px;
+         height: 95px;
+         background: #F08E81;
+         border-radius: 50%;
+      }
+
+      #node22 div {
+         color: white;
+         margin-top: 40px;
+         Margin-left: 3px;
+      }
+
+      .node22.details {
+         top: 780px;
+         margin-left: 815px;
+      }
+
+      #node23 {
+         position: absolute;
+         top: 840px;
+         left: 560px;
+         width: 70px;
+         height: 70px;
+         background: #F08E81;
+         border-radius: 50%;
+      }
+
+      #node23 div {
+         color: white;
+         margin-top: 20px;
+         margin-left: 5px;
+      }
+
+      .node23.details {
+         top: 865px;
+         margin-left: 640px;
+      }
+
+      /* Activities */
+      #node24 {
+         position: absolute;
+         top: 1100px;
+         left: 450px;
+         width: 120px;
+         height: 120px;
+         background: #F08705;
+         border-radius: 50%;
+      }
+
+      #node24 div {
+         color: white;
+         font-size: 1.75em;
+         margin-top: 42.5px;
+         margin-left: 5px;
+      }
+
+      #node35 {
+         position: absolute;
+         top: 974px;
+         left: 418px;
+         width: 75px;
+         height: 75px;
+         background: #F5AF58;
+         border-radius: 50%;
+      }
+
+      #node35 div {
+         color: white;
+         margin-top: 20px;
+         margin-left: 5px;
+      }
+
+      .node35.details {
+         top: 1000px;
+         margin-left: 118px;
+      }
+
+      #node25 {
+         position: absolute;
+         top: 1047px;
+         left: 375px;
+         width: 72.5px;
+         height: 72.5px;
+         background: #F5AF58;
+         border-radius: 50%;
+      }
+
+      #node25 div {
+         color: white;
+         margin-top: 25px;
+         margin-left: 1.5px;
+      }
+
+      .node25.details {
+         top: 1075px;
+         margin-left: 189px;
+      }
+
+      #node26 {
+         position: absolute;
+         top: 1110px;
+         left: 335px;
+         width: 75px;
+         height: 75px;
+         background: #F5AF58;
+         border-radius: 50%;
+      }
+
+      #node26 div {
+         color: white;
+         margin-top: 19px;
+         margin-left: 4px;
+      }
+
+      .node26.details {
+         top: 1146px;
+         margin-left: 145px;
+      }
+
+      #node27 {
+         position: absolute;
+         top: 1190px;
+         left: 327px;
+         width: 60px;
+         height: 60px;
+         background: #F5AF58;
+         border-radius: 50%;
+      }
+
+      #node27 div {
+         color: white;
+         margin-top: 20px;
+         margin-left: 2px;
+      }
+
+      .node27.details {
+         top: 1221px;
+         margin-left: 180px;
+      }
+
+      #node28 {
+         position: absolute;
+         top: 1270px;
+         left: 355px;
+         width: 60px;
+         height: 60px;
+         background: #F5AF58;
+         border-radius: 50%;
+      }
+
+      #node28 div {
+         color: white;
+         margin-top: 20px;
+         margin-left: 5px;
+      }
+
+      .node28.details {
+         top: 1313px;
+         margin-left: 228px;
+      }
+
+      #node29 {
+         position: absolute;
+         top: 1277px;
+         left: 461px;
+         width: 60px;
+         height: 60px;
+         background: #F5AF58;
+         border-radius: 50%;
+         margin-bottom: 100px;
+      }
+
+      #node29 div {
+         color: white;
+         margin-top: 15px;
+         margin-left: 8px;
+      }
+
+      .node29.details {
+         top: 1348px;
+         margin-left: 427px;
+      }
+
+      #node30 {
+         position: absolute;
+         top: 1240px;
+         left: 555px;
+         width: 85px;
+         height: 85px;
+         background: #F5AF58;
+         border-radius: 50%;
+      }
+
+      #node30 div {
+         color: white;
+         margin-top: 23px;
+         margin-left: 3.5px;
+      }
+
+      .node30.details {
+         top: 1285px;
+         margin-left: 641px;
+      }
+
+      #node31 {
+         position: absolute;
+         top: 1185px;
+         left: 625px;
+         width: 70px;
+         height: 70px;
+         background: #F5AF58;
+         border-radius: 50%;
+      }
+
+      #node31 div {
+         color: white;
+         margin-top: 15px;
+         margin-left: 12.5px;
+      }
+
+      .node31.details {
+         top: 1215px;
+         margin-left: 700px;
+      }
+
+      #node32 {
+         position: absolute;
+         top: 1111px;
+         left: 665px;
+         width: 75px;
+         height: 75px;
+         background: #F5AF58;
+         border-radius: 50%;
+      }
+
+      #node32 div {
+         color: white;
+         margin-top: 19px;
+         margin-left: 17px;
+      }
+
+      .node32.details {
+         top: 1133px;
+         margin-left: 743px;
+      }
+
+      #node33 {
+         position: absolute;
+         top: 1010px;
+         left: 618px;
+         width: 70px;
+         height: 70px;
+         background: #F5AF58;
+         border-radius: 50%;
+      }
+
+      #node33 div {
+         color: white;
+         margin-top: 15px;
+         margin-left: 7.5px;
+      }
+
+      .node33.details {
+         top: 1021px;
+         margin-left: 691px;
+      }
+
+      #node34 {
+         position: absolute;
+         top: 978px;
+         left: 522px;
+         width: 75px;
+         height: 75px;
+         background: #F5AF58;
+         border-radius: 50%;
+      }
+
+      #node34 div {
+         color: white;
+         margin-top: 20px;
+         margin-left: 7.5px;
+      }
+
+      .node34.details {
+         top: 961px;
+         margin-left: 590px;
+      }
+
+      /* Arrows */
+      /* node4node7*/
+      .arrow .point:before,
+      .arrow .point:after {
+         border: 1px solid #A29DC5;
+         height: 15px;
+         content: "";
+         position: absolute;
+      }
+
+      .arrow .point:before {
+         top: -20px;
+         left: -11px;
+         transform: rotate(-45deg);
+         -webkit-transform: rotate(-45deg);
+         -moz-transform: rotate(-45deg);
+         -ms-transform: rotate(-45deg);
+      }
+
+      .arrow .point:after {
+         top: -20px;
+         transform: rotate(45deg);
+         -webkit-transform: rotate(45deg);
+         -moz-transform: rotate(45deg);
+         -ms-transform: rotate(45deg);
+      }
+
+      .context-arrow .arrow .point:before,
+      .context-arrow .arrow .point:after {
+         border: 1px solid #64BBE2;
+         height: 15px;
+         content: "";
+         position: absolute;
+      }
+
+      /* node12node13*/
+      .plan-arrow .arrow .point:before,
+      .plan-arrow .arrow .point:after {
+         border: 1px solid #F08E81;
+         height: 15px;
+         content: "";
+         position: absolute;
+      }
+
+      /* node15node16*/
+      .node15node16 .arrow .point:before,
+      .node16node17 .arrow .point:before {
+         top: -21px;
+         left: -15px;
+         transform: rotate(-75deg);
+         -webkit-transform: rotate(-75deg);
+         -moz-transform: rotate(-75deg);
+         -ms-transform: rotate(-75deg);
+      }
+
+      .node15node16 .arrow .point:after,
+      .node16node17 .arrow .point:after {
+         top: -27px;
+         left: -8px;
+         transform: rotate(-15deg);
+         -webkit-transform: rotate(-15deg);
+         -moz-transform: rotate(-15deg);
+         -ms-transform: rotate(-15deg);
+      }
+
+      /* node19node20*/
+      .node36node37 .arrow .point:before,
+      .node16node17a .arrow .point:before,
+      .node19node20 .arrow .point:before,
+      .node21node22 .arrow .point:before {
+         top: -31px;
+         left: -8px;
+         transform: rotate(-95deg);
+         -webkit-transform: rotate(-95deg);
+         -moz-transform: rotate(-95deg);
+         -ms-transform: rotate(-95deg);
+      }
+
+      .node36node37 .arrow .point:after,
+      .node16node17a .arrow .point:after,
+      .node19node20 .arrow .point:after,
+      .node21node22 .arrow .point:after {
+         top: -38px;
+         left: -4px;
+         transform: rotate(-25deg);
+         -webkit-transform: rotate(-25deg);
+         -moz-transform: rotate(-25deg);
+         -ms-transform: rotate(-25deg);
+      }
+
+      .activity-arrow .arrow .point:before,
+      .activity-arrow .arrow .point:after {
+         border: 1px solid #F5AF58;
+         height: 15px;
+         content: "";
+         position: absolute;
+      }
+
+      /* node28node29 */
+      .node29node30a .arrow .point:before,
+      .node28node29 .arrow .point:before {
+         top: -23px;
+         left: -35px;
+         transform: rotate(45deg);
+         -webkit-transform: rotate(45deg);
+         -moz-transform: rotate(45deg);
+         -ms-transform: rotate(45deg);
+      }
+
+      .node29node30a .arrow .point:after,
+      .node28node29 .arrow .point:after {
+         top: -34px;
+         left: -35px;
+         transform: rotate(125deg);
+         -webkit-transform: rotate(125deg);
+         -moz-transform: rotate(125deg);
+         -ms-transform: rotate(125deg);
+      }
+
+      /* node29node30 */
+      .node29node30 .arrow .point:before,
+      .node30node31 .arrow .point:before,
+      .node31node32 .arrow .point:before {
+         top: -23px;
+         left: -35px;
+         transform: rotate(45deg);
+         -webkit-transform: rotate(45deg);
+         -moz-transform: rotate(45deg);
+         -ms-transform: rotate(45deg);
+      }
+
+      .node29node30 .arrow .point:after,
+      .node30node31 .arrow .point:after,
+      .node31node32 .arrow .point:after {
+         top: -23px;
+         left: -25px;
+         transform: rotate(145deg);
+         -webkit-transform: rotate(145deg);
+         -moz-transform: rotate(145deg);
+         -ms-transform: rotate(145deg);
+      }
+
+      .node35node25 .arrow .point:after {
+         top: -17px;
+         left: -3px;
+      }
+
+      #title {
+         width: 50%;
+         padding: 10px;
+         font-size: 2.5em;
+         min-width: 700px;
+         margin-left: 220px;
+      }
+
+      #version {
+         margin-left: 475px;
+         width: 50%;
+         padding: 10px;
+         font-size: 1.15em;
+         min-width: 100px;
+      }
+
+      /* hamburger */
+      a {
+         text-decoration: none;
+         color: #232323;
+         transition: color 0.3s ease;
+      }
+
+      a:hover {
+         color: tomato;
+      }
+
+      #menuToggle {
+         display: block;
+         position: relative;
+         top: 50px;
+         left: 55px;
+         z-index: 1;
+         -webkit-user-select: none;
+         user-select: none;
+      }
+
+      #menuToggle input {
+         display: block;
+         width: 40px;
+         height: 32px;
+         position: absolute;
+         top: -7px;
+         left: -5px;
+         cursor: pointer;
+         opacity: 0;
+         /* hide this */
+         z-index: 2;
+         /* and place it over the hamburger */
+         -webkit-touch-callout: none;
+      }
+
+      /*
+         * Just a quick hamburger
+         */
+      #menuToggle span {
+         display: block;
+         width: 33px;
+         height: 4px;
+         margin-bottom: 5px;
+         position: relative;
+         background: #cdcdcd;
+         border-radius: 3px;
+         z-index: 1;
+         transform-origin: 4px 0px;
+         transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+            background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+            opacity 0.55s ease;
+      }
+
+      #menuToggle span:first-child {
+         transform-origin: 0% 0%;
+      }
+
+      #menuToggle span:nth-last-child(2) {
+         transform-origin: 0% 100%;
+      }
+
+      /* Sidemenu*/
+      .side-menu {
+         position: fixed !important;
+         width: 14em;
+         height: auto;
+         margin: 4em auto 0;
+         font-size: 1em;
+         line-height: 2em;
+         color: #fff;
+         font-weight: 700;
+         text-transform: uppercase;
+         top: 0;
+         bottom: 0;
+         left: -10em;
+         z-index: 1000;
+         Margin-top: 450px;
+      }
+
+      .side-menu ul {
+         list-style: none;
+         margin: 0;
+         padding: 0;
+      }
+
+      .side-menu ul li {
+         display: block;
+         background-color: #333;
+         height: 2em;
+         padding: 1em 1.5em;
+         position: relative;
+         -webkit-transition: -webkit-transform 0.5s, background-color .5s, color .5s;
+         transition: transform .5s, background-color .5s, color .5s;
+      }
+
+      /*the colors of the different columns*/
+      .side-menu ul li:nth-child(1) {
+         background-color: #E79A20;
+      }
+
+      .side-menu ul li:nth-child(2) {
+         background-color: #00aced;
+      }
+
+      .side-menu ul li:nth-child(3) {
+         z-index: 100;
+         background-color: #00a300;
+      }
+
+      .side-menu ul li:nth-child(4) {
+         background-color: #1e7145;
+      }
+
+      .side-menu ul li:nth-child(5) {
+         background-color: #ffc40d;
+      }
+
+      .side-menu ul li:nth-child(6) {
+         background-color: #cb2027;
+      }
+
+      .side-menu ul li:hover {
+         background-color: #339966;
+         /*you can make different colors depending on the nth-child like above*/
+         -webkit-transform: translateX(10em);
+         transform: translateX(10em);
+         /*equal to left in the .side-menu*/
+      }
+
+      .side-menu ul li a {
+         display: block;
+         color: #FFF;
+         text-decoration: none;
+      }
+
+      .side-menu ul li span {
+         display: block;
+         position: absolute;
+         font-size: 1em;
+         line-height: 2em;
+         height: 2em;
+         top: 0;
+         bottom: 0;
+         margin: 0 auto;
+         padding: 1em 1.5em;
+         right: 0.16666666666667em;
+         color: #F8F6FF;
+      }
+
+      main>h2 {
+         margin-top: 1%;
+      }
+
+      main>h2>span {
+         color: #00BFFF;
+      }
+
+      #dashboard-topology {
+         position: absolute;
+         margin-left: 25%;
+         // background-color: #cfd3d7;
+      }
+
+      /* wizard */
+      .top-wizard {
+         position: fixed;
+         Width: 100%;
+         height: 105px;
+         z-index: 222221;
+         box-shadow: 0 0.0625em 0.25em rgba(0, 0, 0, .3);
+         background: white;
+      }
+
+      .wizard {
+         display: flex;
+         padding: 0;
+         overflow: hidden;
+         counter-reset: wizard;
+         max-width: 1000px;
+         margin-top: 20px;
+      }
+
+      .wizard li {
+         flex: 1;
+         list-style-type: none;
+         position: relative;
+         text-align: center;
+         font-size: 16px;
+         color: #282828;
+      }
+
+      .wizard li:before {
+         counter-increment: wizard;
+         content: counter(wizard);
+         display: block;
+         color: #ffffff;
+         background-color: #93c737;
+         border: 4px solid #93c737;
+         width: 40px;
+         height: 40px;
+         line-height: 40px;
+         border-radius: 50%;
+         position: relative;
+         left: 50%;
+         margin-bottom: 20px;
+         margin-left: -20px;
+         z-index: 1;
+         font-size: 20px;
+         font-weight: bold;
+         transition: all 0.5s ease-in;
+      }
+
+      .wizard li:after {
+         background: linear-gradient(to right, #93c737 50%, #d6dce9 50%);
+         background-size: 200% 100%;
+         background-position: left bottom;
+         transition: background 0.5s ease-in;
+      }
+
+      .wizard li+li:after {
+         content: "";
+         display: block;
+         width: 100%;
+         height: 4px;
+         position: absolute;
+         left: -50%;
+         top: 20px;
+      }
+
+      .wizard li.active:before {
+         background-color: #ffffff;
+         color: #1b2f73;
+         border: 4px solid #1b2f73;
+      }
+
+      .wizard li.active~li:after {
+         background-color: #d6dce9;
+         background-position: right bottom;
+      }
+
+      .wizard li.active~li:before {
+         background-color: #ffffff;
+         color: #d6dce9;
+         border-color: #d6dce9;
+      }
+
+      @media (max-width: 360px) {
+         .wizard li {
+            color: transparent;
+         }
+      }
+
+      .wizard-container {
+         min-width: 1000px;
+         z-index: 222222;
+         background: white;
+         position: fixed;
+         margin-top: 50px;
+      }
+
+      /*
+         #context-phase:before {
+         background: #1699D3;
+         border: 4px solid #64BBE2;
+         }
+         #team-phase:before {
+         background: #736CA8;
+         border: 4px solid #A29DC5;
+         }
+         #plan-phase:before {
+         background: #E85642;
+         border: 4px solid #F08E81;
+         }
+         #act-phase:before {
+         background: #F08705;
+         border: 4px solid #F5AF58;
+         }
+         */
+      .mindmap {
+         margin-top: 200px;
+         position: absolute;
+      }
+
+      .team,
+      .plan,
+      .activity {
+         Opacity: 0.2;
+      }
+
+      .centersrc {
+         left: 50%;
+         margin-right: -50%;
+         transform: translate(-50%, -50%);
+      }
+
+      /* theme switch */
+      .theme-switch {
+         position: fixed;
+         margin-top: 660px;
+         z-index: 55555555555;
+      }
+
+      .switch {
+         position: relative;
+         display: inline-block;
+         vertical-align: top;
+         width: 60px;
+         height: 20px;
+         padding: 3px;
+         background-color: white;
+         border-radius: 18px;
+         box-shadow: inset 0 -1px white, inset 0 1px 1px rgba(0, 0, 0, 0.05);
+         cursor: pointer;
+         background-image: -webkit-linear-gradient(top, #eeeeee, white 25px);
+         background-image: -moz-linear-gradient(top, #eeeeee, white 25px);
+         background-image: -o-linear-gradient(top, #eeeeee, white 25px);
+         background-image: linear-gradient(to bottom, #eeeeee, white 25px);
+      }
+
+      .switch-input {
+         position: absolute;
+         top: 0;
+         left: 0;
+         opacity: 0;
+      }
+
+      .switch-label {
+         position: relative;
+         display: block;
+         height: inherit;
+         font-size: 10px;
+         text-transform: uppercase;
+         background: #eceeef;
+         border-radius: inherit;
+         box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.15);
+         -webkit-transition: 0.15s ease-out;
+         -moz-transition: 0.15s ease-out;
+         -o-transition: 0.15s ease-out;
+         transition: 0.15s ease-out;
+         -webkit-transition-property: opacity background;
+         -moz-transition-property: opacity background;
+         -o-transition-property: opacity background;
+         transition-property: opacity background;
+      }
+
+      .switch-label:before,
+      .switch-label:after {
+         position: absolute;
+         top: 50%;
+         margin-top: -.5em;
+         line-height: 1;
+         -webkit-transition: inherit;
+         -moz-transition: inherit;
+         -o-transition: inherit;
+         transition: inherit;
+      }
+
+      .switch-label:before {
+         content: attr(data-off);
+         right: 4px;
+         color: #aaa;
+         text-shadow: 0 1px rgba(255, 255, 255, 0.5);
+      }
+
+      .switch-label:after {
+         content: attr(data-on);
+         left: 6.5px;
+         color: white;
+         text-shadow: 0 1px rgba(0, 0, 0, 0.2);
+         opacity: 0;
+      }
+
+      .switch-input:checked~.switch-label {
+         background: #47a8d8;
+         box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15), inset 0 0 3px rgba(0, 0, 0, 0.2);
+      }
+
+      .switch-input:checked~.switch-label:before {
+         opacity: 0;
+      }
+
+      .switch-input:checked~.switch-label:after {
+         opacity: 1;
+      }
+
+      .switch-handle {
+         position: absolute;
+         top: 4px;
+         left: 5px;
+         margin-left: 5.5px;
+         width: 18px;
+         height: 18px;
+         background: white;
+         border-radius: 10px;
+         box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+         background-image: -webkit-linear-gradient(top, white 40%, #f0f0f0);
+         background-image: -moz-linear-gradient(top, white 40%, #f0f0f0);
+         background-image: -o-linear-gradient(top, white 40%, #f0f0f0);
+         background-image: linear-gradient(to bottom, white 40%, #f0f0f0);
+         -webkit-transition: left 0.15s ease-out;
+         -moz-transition: left 0.15s ease-out;
+         -o-transition: left 0.15s ease-out;
+         transition: left 0.15s ease-out;
+      }
+
+      .switch-handle:before {
+         content: '';
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         margin: -6px 0 0 -6px;
+         width: 12px;
+         height: 12px;
+         background: #f9f9f9;
+         border-radius: 6px;
+         box-shadow: inset 0 1px rgba(0, 0, 0, 0.02);
+         background-image: -webkit-linear-gradient(top, #eeeeee, white);
+         background-image: -moz-linear-gradient(top, #eeeeee, white);
+         background-image: -o-linear-gradient(top, #eeeeee, white);
+         background-image: linear-gradient(to bottom, #eeeeee, white);
+      }
+
+      .switch-input:checked~.switch-handle {
+         left: 40px;
+         box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      .switch-green>.switch-input:checked~.switch-label {
+         background: #4fb845;
+      }
+   </style>
+   <style>
+      /* PRO Modal */
+      .modal {
+         display: none;
+         /* Hidden by default */
+         position: fixed;
+         /* Stay in place */
+         z-index: 1;
+         /* Sit on top */
+         padding-top: 100px;
+         /* Location of the box */
+         left: 0;
+         top: 0;
+         width: 100%;
+         /* Full width */
+         height: 100%;
+         /* Full height */
+         overflow: auto;
+         /* Enable scroll if needed */
+         background-color: rgb(0, 0, 0);
+         /* Fallback color */
+         background-color: rgba(0, 0, 0, 0.4);
+         /* Black w/ opacity */
+      }
+
+      /* Modal Content */
+      .modal-content {
+         background-color: #fefefe;
+         margin: auto;
+         padding: 20px;
+         border: 1px solid #888;
+         width: 80%;
+      }
+
+      /* The Close Button */
+      .close, .close1 {
+         color: #aaaaaa;
+         float: right;
+         font-size: 28px;
+         font-weight: bold;
+      }
+
+      .close:hover,
+      .close:focus,
+      .close1:hover,
+      .close1:focus {
+         color: #000;
+         text-decoration: none;
+         cursor: pointer;
+      }
+   </style>
+</head>
+
+<body onLoad="loadWizard()">
+   <nav class="side-menu">
+      <ul>
+         <li id="proModalButton" style="z-index:1000;"><a href="#" data-modal="alerts-modal">Show details<span id="proModalButton"><i
+                     class="fa fa-info-circle"></i></span></a>
+         </li>
+         <li id="proModalButton1" style="z-index:1000;"><a href="#">Show links<span id="proModalButton1"><i
+                     class="fa fa-external-link"></i></span></a></li>
+         <li style="z-index:1000;"><a
+               href="https://github.com/ekostadinov/human-driven-testing-framework/blob/master/CHANGELOG.md">Changelog<span><i
+                     class="fa fa-file-text-o"></i></span></a></li>
+         <!-- <li><a href="#">Accomodation<span><i class="fa fa-bed"></i></span></a></li>
+               <li><a href="#">Food&Drink<span><i class="fa fa-beer"></i></span></a></li> -->
+      </ul>
+   </nav>
+   <div class="top-wizard">
+      <!-- wizard -->
+      <div class="wizard-container centersrc">
+         <ul class="wizard">
+            <li id="context-phase" class="active">Context</li>
+            <li id="team-phase" class="" onclick="showTeam()">Team</li>
+            <li id="plan-phase" class="" onclick="showPlan()">Plan</li>
+            <li id="act-phase" class="" onclick="showAct()">Test</li>
+         </ul>
+      </div>
+   </div>
+   <div class="theme-switch" onclick="changeTheme()">
+      <label class="switch">
+         <input type="checkbox" class="switch-input" checked>
+         <span class="switch-label" data-on="theme" data-off="theme"></span>
+         <span class="switch-handle"></span>
+      </label>
+   </div>
+   <div class="mindmap centersrc">
+      <div id="title">Software Testing Meta Framework</div>
+      <div id="version">v5.0.0</div>
+      <div id="proModal" class="modal" style="color: black !important;">
+         <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>This feature is available only in <span style="background: #ffdd40; padding: 1px 6px 2px 5px; border-radius: 2px; text-shadow: none !important; font-weight: 900;">PRO</span> Edition.</p>
+            <p>Get yours at <a href="mailto:office@assertstack.com" style="color:#1699D3">office@assertstack.com</a></p>
+         </div>
+
+      </div>
+      <div id="proModal1" class="modal" style="color: black !important;">
+         <div class="modal-content">
+            <span class="close1">&times;</span>
+            <p>This feature is available only in <span style="background: #ffdd40; padding: 1px 6px 2px 5px; border-radius: 2px; text-shadow: none !important; font-weight: 900;">PRO</span> Edition.</p>
+            <p>Get yours at <a href="mailto:office@assertstack.com" style="color:#1699D3">office@assertstack.com</a></p>
+         </div>
+
+      </div>
+
+
+
+      <!-- Context -->
+      <div id="node1">
+         <a href="#"><i class="fa fa-external-link"
+               style="font-size:20px;color:grey;margin-top:-15px;visibility:hidden;"></i></a>
+         <div>Shape quality</div>
+      </div>
+      <div id="node2">
+         <div>Context</div>
+      </div>
+      <div id="node3">
+         <a href="#"><i class="fa fa-external-link"
+               style="font-size:20px;color:grey;margin-top:-15px;visibility:hidden;"></i></a>
+         <div>Inception phases</div>
+      </div>
+      <div class="node1node3 context-arrow">
+         <div class="arrow" style="position:absolute;margin: 0 auto;width:100px;top:161px;left:322px;">
+            <div class="curve"
+               style="border:2px solid #64BBE2;border-color:transparent transparent transparent #64BBE2;height:50px;width: 1200px;border-radius:230px 0 0 150px;">
+            </div>
+            <div class="point" style="position:absolute;left:10px;top:58px;"></div>
+         </div>
+      </div>
+      <div id="node36">
+         <a href="#"><i class="fa fa-external-link"
+               style="font-size:20px;color:grey;margin-top:-15px;visibility:hidden;"></i></a>
+         <div>Utilize Data</div>
+      </div>
+      <div id="node38">
+         <!-- <i href=""><i class="fa fa-external-link" style="font-size:20px;color:red;margin-top:-15px;visibility:hidden;"></i></a> -->
+         <div>Work with stake holders</div>
+      </div>
+      <div id="node37">
+         <div>Put limits to Testing</div>
+      </div>
+      <div class="node36node37 context-arrow">
+         <div class="arrow" style="position:absolute;margin: 0 auto;width:100px;top:149px;left:669px;">
+            <div class="curve"
+               style="border:2px solid #64BBE2;border-color: #64BBE2 transparent transparent transparent;height:50px;width: 31px;border-radius:20px 520px 0 20px;">
+            </div>
+            <div class="point" style="position:absolute;left:33px;top:38px;"></div>
+         </div>
+      </div>
+      <div id="edge9"></div>
+      <div id="edge11"></div>
+      <div id="edge18"></div>
+      <!-- Team -->
+      <div class="team">
+         <div id="node4">
+            <div>Set learning processes</div>
+         </div>
+         <div class="node4node7 team-arrow">
+            <div class="arrow" style="position:absolute;margin: 0 auto;width:100px;top:350px;left:255px;">
+               <div class="curve"
+                  style="border:2px solid #A29DC5;border-color:transparent transparent transparent #A29DC5;height:50px;width: 1200px;border-radius:230px 0 0 150px;">
+               </div>
+               <div class="point" style="position:absolute;left:10px;top:58px;"></div>
+            </div>
+         </div>
+         <div class="node7node8 team-arrow">
+            <div class="arrow" style="position:absolute;margin: 0 auto;width:100px;top:440px;left:230px;">
+               <div class="curve"
+                  style="border:2px solid #A29DC5;border-color:transparent transparent transparent #A29DC5;height:50px;width: 1200px;border-radius:230px 0 0 150px;">
+               </div>
+               <div class="point" style="position:absolute;left:10px;top:58px;"></div>
+            </div>
+         </div>
+         <div id="node7">
+            <a href="#"><i class="fa fa-external-link"
+                  style="font-size:20px;color:grey;margin-top:-15px;visibility:hidden;"></i></a>
+            <div>Monitor trends</div>
+         </div>
+         <div id="node8">
+            <a href="#"><i class="fa fa-external-link"
+                  style="font-size:20px;color:grey;margin-top:-15px;visibility:hidden;"></i></a>
+            <div>Define concrete practices</div>
+         </div>
+         <div id="node9">
+            <div>Identify Testing Areas</div>
+         </div>
+         <div id="node10">
+            <a href="#"><i class="fa fa-external-link"
+                  style="font-size:20px;color:grey;margin-top:-15px;visibility:hidden;"></i></a>
+            <div>Define the skillset</div>
+         </div>
+         <div id="node5">
+            <div>Team</div>
+         </div>
+         <div id="node6">
+            <a href="#"><i class="fa fa-external-link"
+                  style="font-size:20px;color:grey;margin-top:-15px;visibility:hidden;"></i></a>
+            <div><span style="margin-left: 20px !important;">Take</span> responsibility</div>
+         </div>
+         <div id="edge1"></div>
+         <div class="edge1 arrow-down"></div>
+         <div id="edge2"></div>
+         <div id="edge3"></div>
+         <div id="edge6"></div>
+         <div id="edge7"></div>
+      </div>
+      <!-- Test planning & Strategy-->
+      <div class="plan">
+         <div id="edge4"></div>
+         <div class="edge4 arrow-down"></div>
+         <div id="node11">
+            <div style="margin-left:25px; font-size: 1.45em;">Compact Test Plan </br><span
+                  style="margin-left:25px;">and</span> </br><span style="margin-left:5px;">Strategy</span></div>
+         </div>
+         <div id="node12">
+            <a href="#"><i class="fa fa-external-link"
+                  style="font-size:20px;color:grey;margin-top:-15px;visibility:hidden;"></i></a>
+            <div><span style="margin-left: 5px;">Tests</span> linking</div>
+         </div>
+         <div id="node13">
+            <div>Risks</div>
+         </div>
+         <div id="node14">
+            <div>Resources</div>
+         </div>
+         <div id="node15">
+            <div><span style="margin-left: 15px !important;">QA</span> mapping</div>
+         </div>
+         <div id="node16">
+            <a href="#"><i class="fa fa-external-link"
+                  style="font-size:20px;color:grey;margin-top:-15px;visibility:hidden; margin-left:90px;"></i></a>
+            <div><span style="margin-left: 25px !important;">Choose</span> Methodology of <span style="margin-left:25px;padding-top:10px">Testing</span></div>
+            <div style="margin-left:25px;margin-top:-2.5px;"></div>
+         </div>
+         <div id="node17">
+            <div>Test levels</br> and types</div>
+         </div>
+         <div id="node18">
+            <div>Clafiry </br>Criteria</div>
+         </div>
+         <div id="node19">
+            <div>Scope</div>
+         </div>
+         <div id="node20">
+            <div>Estimations</div>
+         </div>
+         <div id="node21">
+            <a style="position: absolute;z-index: 11111111;margin-top: -6px;" href="#"><i class="fa fa-external-link"
+                  style="font-size:20px;color:grey;visibility:hidden; position: absolute;"></i></a>
+            <div>CICD</div>
+            <div style="padding-top: 5px;margin-top: -10px;margin-left: 5px; "> Pipelines</div>
+         </div>
+         <div id="node22">
+            <div>Environments</div>
+         </div>
+         <div id="node23">
+            <div>Managed Artifacts</div>
+         </div>
+         <div id="edge8"></div>
+         <div id="edge10"></div>
+         <div id="edge12"></div>
+         <div id="edge13"></div>
+         <div id="edge14"></div>
+         <div class="node12node13 plan-arrow">
+            <div class="arrow" style="position:absolute;margin: 0 auto;width:100px;top:598px;left:360px;">
+               <div class="curve"
+                  style="border:2px solid #F08E81;border-color:transparent transparent transparent #F08E81;height:45px;width: 1200px;border-radius:230px 0 0 150px;">
+               </div>
+               <div class="point" style="position:absolute;left:11px;top:55px;"></div>
+            </div>
+         </div>
+         <div class="node13node14 plan-arrow">
+            <div class="arrow" style="position:absolute;margin: 0 auto;width:100px;top:664px;left:320px;">
+               <div class="curve"
+                  style="border:2px solid #F08E81;border-color:transparent transparent transparent #F08E81;height:40px;width: 1200px;border-radius:1250px 0 0 120px;">
+               </div>
+               <div class="point" style="position:absolute;left:5px;top:55px;"></div>
+            </div>
+         </div>
+         <div class="node14node15 plan-arrow">
+            <div class="arrow" style="position:absolute;margin: 0 auto;width:100px;top:744px;left:274px;">
+               <div class="curve"
+                  style="border:2px solid #F08E81;border-color:transparent transparent transparent #F08E81;height:40px;width: 1200px;border-radius:230px 0 0 150px;">
+               </div>
+               <div class="point" style="position:absolute;left:10px;top:51px;"></div>
+            </div>
+         </div>
+         <div class="node15node16 plan-arrow">
+            <div class="arrow" style="position:absolute;margin: 0 auto;width:100px;top:827px;left:224px;">
+               <div class="curve"
+                  style="border:2px solid #F08E81;border-color:transparent transparent transparent #F08E81;height:40px;width: 30px;border-radius:230px 0 0 550px;">
+               </div>
+               <div class="point" style="position:absolute;left:20px;top:51px;"></div>
+            </div>
+         </div>
+         <div class="node16node17a plan-arrow">
+            <div class="arrow" style="position:absolute;margin: 0 auto;width:100px;top:900px;left:314px;">
+               <div class="curve"
+                  style="border:2px solid #F08E81;border-color: #F08E81 transparent transparent transparent;height:50px;width: 45px;border-radius:20px 20px 0 20px;">
+               </div>
+               <div class="point" style="position:absolute;left:48px;top:33px;"></div>
+            </div>
+         </div>
+         <div class="node19node20 plan-arrow">
+            <div class="arrow" style="position:absolute;margin: 0 auto;width:100px;top:663px;left:669px;">
+               <div class="curve"
+                  style="border:2px solid #F08E81;border-color: #F08E81 transparent transparent transparent;height:50px;width: 45px;border-radius:20px 20px 0 20px;">
+               </div>
+               <div class="point" style="position:absolute;left:48px;top:33px;"></div>
+            </div>
+         </div>
+         <div class="node21node22 plan-arrow">
+            <div class="arrow" style="position:absolute;margin: 0 auto;width:100px;top:773px;left:657px;">
+               <div class="curve"
+                  style="border:2px solid #F08E81;border-color: #F08E81 transparent transparent transparent;height:47px;width: 51px;border-radius:20px 20px 0 20px;">
+               </div>
+               <div class="point" style="position:absolute;left:53px;top:32px;"></div>
+            </div>
+         </div>
+      </div>
+      <!-- Activities -->
+      <div class="activity">
+         <div id="edge5"></div>
+         <div class="edge5 arrow-down"></div>
+         <div id="node24">
+            <div>Activities</div>
+         </div>
+         <div id="node35">
+            <div><span style="margin-left: 20px !important;">Use</span> standards</div>
+         </div>
+         <div id="node25">
+            <div>Guidelines</div>
+         </div>
+         <div id="node26">
+            <div>Better Checklists</div>
+         </div>
+         <div id="node27">
+            <div>Catalogs</div>
+         </div>
+         <div id="node28">
+            <div>Oracles</div>
+         </div>
+         <div id="node29">
+            <a style="z-index: 11111111;position: absolute;" href="#"><i class="fa fa-external-link"
+                  style="font-size:20px;color:grey;margin-top:-15px;visibility:hidden;"></i></a>
+            <div>Testing cards</div>
+         </div>
+         <div id="node30">
+            <a style="z-index: 11111111;position: absolute;" href="#"><i class="fa fa-external-link"
+                  style="font-size:20px;color:grey;margin-top:-15px;visibility:hidden;"></i></a>
+            <div>Manage test sessions</div>
+         </div>
+         <div id="node31">
+            <a style="z-index: 11111111;position: absolute;" href="#"><i class="fa fa-external-link"
+                  style="font-size:20px;color:grey;margin-top:-15px;visibility:hidden;"></i></a>
+            <div>Test analysis</div>
+         </div>
+         <div id="node32">
+            <div> Testing reviews </div>
+         </div>
+         <div id="node33">
+            <a style="position: absolute;z-index: 1111111111;" href="#"><i class="fa fa-external-link"
+                  style="font-size:20px;color:grey;margin-top:-15px;visibility:hidden;"></i></a>
+            <div> Deplos checking </div>
+         </div>
+         <div id="node34">
+            <div> Reporting mechanic</div>
+         </div>
+         <div id="edge15"></div>
+         <div id="edge16"></div>
+         <div id="edge17"></div>
+         <div class="node35node25 activity-arrow">
+            <div class="arrow" style="position:absolute;margin: 0 auto;width:100px;top:1008px;left:410px;">
+               <div class="curve"
+                  style="border:2px solid #F5AF58;border-color:transparent transparent transparent #F5AF58;height:34px;width: 1200px;border-radius:230px 0 0 150px;">
+               </div>
+               <div class="point" style="position:absolute;left:9px;top:45px;"></div>
+            </div>
+         </div>
+         <div class="node25node26 activity-arrow">
+            <div class="arrow" style="position:absolute;margin: 0 auto;width:100px;top:1060px;left:363px;">
+               <div class="curve"
+                  style="border:2px solid #F5AF58;border-color:transparent transparent transparent #F5AF58;height:50px;width: 1200px;border-radius:230px 0 0 150px;">
+               </div>
+               <div class="point" style="position:absolute;left:11px;top:56px;"></div>
+            </div>
+         </div>
+         <div class="node26node27 activity-arrow">
+            <div class="arrow" style="position:absolute;margin: 0 auto;width:100px;top:1148px;left:326px;">
+               <div class="curve"
+                  style="border:2px solid #F5AF58;border-color:transparent transparent transparent #F5AF58;height:50px;width: 1200px;border-radius:230px 0 0 150px;">
+               </div>
+               <div class="point" style="position:absolute;left:11px;top:56px;"></div>
+            </div>
+         </div>
+         <div class="node27node28 activity-arrow">
+            <div class="arrow" style="position:absolute;margin: 0 auto;width:100px;top:1228px;left:356px;">
+               <div class="curve"
+                  style="border:2px solid #F5AF58;border-color:transparent transparent transparent #F5AF58;height:50px;width: 1200px;border-radius:230px 0 0 150px;">
+               </div>
+               <div class="point" style="position:absolute;left:11px;top:56px;"></div>
+            </div>
+         </div>
+         <div class="node28node29 activity-arrow">
+            <div class="arrow" style="position:absolute;margin: 0 auto;width:100px;top:1253px;left:413px;">
+               <div class="curve"
+                  style="border:2px solid #F5AF58;border-color:transparent transparent #F5AF58 transparent;height:50px;width: 40px;border-radius:230px 0 0 150px;">
+               </div>
+               <div class="point" style="position:absolute;left:75px;top:73px;"></div>
+            </div>
+         </div>
+         <div class="node29node30a activity-arrow">
+            <div class="arrow" style="position:absolute;margin: 0 auto;width:100px;top:1253px;left:513px;">
+               <div class="curve"
+                  style="border:2px solid #F5AF58;border-color:transparent transparent #F5AF58 transparent;height:50px;width: 40px;border-radius:230px 0 0 150px;">
+               </div>
+               <div class="point" style="position:absolute;left:75px;top:73px;"></div>
+            </div>
+         </div>
+         <div class="node30node31 activity-arrow">
+            <div class="arrow" style="position:absolute;margin: 0 auto;width:100px;top:1253px;left:613px;">
+               <div class="curve"
+                  style="border:2px solid #F5AF58;border-color:transparent #F5AF58 transparent transparent;height:40px;width: 40px;border-radius:0px 55px 185px  0px;">
+               </div>
+               <div class="point" style="position:absolute;left:70px;top:23px;"></div>
+            </div>
+         </div>
+         <div class="node31node32 activity-arrow">
+            <div class="arrow" style="position:absolute;margin: 0 auto;width:100px;top:1182px;left:665px;">
+               <div class="curve"
+                  style="border:2px solid #F5AF58;border-color:transparent #F5AF58 transparent transparent;height:40px;width: 40px;border-radius:0px 55px 185px  0px;">
+               </div>
+               <div class="point" style="position:absolute;left:70px;top:23px;"></div>
+            </div>
+         </div>
+         <div>
+         </div>
+      </div>
+
+
+      <!-- PRO MODAL -->
+      <script>
+         var modal = document.getElementById("proModal");
+         var btn = document.getElementById("proModalButton");
+         var span = document.getElementsByClassName("close")[0];
+         btn.onclick = function () {
+            modal.style.display = "block";
+         }
+         span.onclick = function () {
+            modal.style.display = "none";
+         }
+         window.onclick = function (event) {
+            if (event.target == modal) {
+               modal.style.display = "none";
+            }
+         }
+
+         var modal1 = document.getElementById("proModal1");
+         var btn1 = document.getElementById("proModalButton1");
+         var span1 = document.getElementsByClassName("close1")[0];
+         btn1.onclick = function () {
+            modal1.style.display = "block";
+         }
+         span1.onclick = function () {
+            modal1.style.display = "none";
+         }
+         window.onclick = function (event) {
+            if (event.target == modal1) {
+               modal1.style.display = "none";
+            }
+         }
+      </script>
+
+
+
+</body>
