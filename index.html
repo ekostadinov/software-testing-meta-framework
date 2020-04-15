@@ -8,6 +8,15 @@
    <!-- heritige left-ove sign -->
    <title>Human-driven Testing Framework</title>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <style type="text/css" media="screen">
+      @font-face {
+         font-family: 'shadows_into_lightregular';
+         src: url('shadowsintolightfont/shadowsintolight-regular-webfont.woff2') format('woff2'),
+            url('shadowsintolightfont/shadowsintolight-regular-webfont.woff') format('woff');
+         font-weight: normal;
+         font-style: normal;
+      }
+   </style>
    <script>
       function showMapDetails() {
          var details = document.getElementsByClassName('details')
@@ -91,7 +100,6 @@
       body {
          background-color: white;
          padding-bottom: 50px;
-         font-family: shadows_into_lightregular;
       }
 
       /* edges */
@@ -378,24 +386,23 @@
 
       #node2 {
          position: absolute;
-         top: 135px;
-         left: 450px;
-         width: 120px;
-         height: 120px;
-         background: #1699D3;
-         border-radius: 50%;
+         top: 105px;
+         border: 2px dotted #1699D3;
+         width: 85%;
+         height: 195px;
+         margin-left: 10%;
       }
 
-      #node2 div {
+      #node2 p {
+         margin-left: 35%;
+      }
+      
+      #context-title{
          color: white;
-         font-size: 1.75em;
-         margin-top: 45px;
-         margin-left: 15px;
-      }
-
-      .node2.details {
-         margin-left: 85px;
-         margin-top: 117px;
+         font-size: 1.5em;
+         background-color: #1699D3;
+         width: 10%;
+         height: 99%;
       }
 
       #node3 {
@@ -522,15 +529,16 @@
          position: absolute;
          top: 481px;
          left: 224px;
-         width: 95px;
-         height: 95px;
+         width: 80px;
+         height: 80px;
          background: #A29DC5;
          border-radius: 50%;
       }
 
       #node8 div {
          color: white;
-         margin-left: 20px;
+         margin-left: 12px;
+         margin-top: -5px;
       }
 
       .node8.details {
@@ -581,19 +589,23 @@
 
       #node5 {
          position: absolute;
-         top: 350px;
-         left: 450px;
-         width: 120px;
-         height: 120px;
-         background: #736CA8;
-         border-radius: 50%;
+         top: 307px;
+         border: 2px dotted #736CA8;
+         width: 85%;
+         height: 255px;
+         margin-left: 10%;
       }
 
-      #node5 div {
+      #node5 p {
+         margin-left: 35%;
+      }
+      
+      #team-title{
          color: white;
-         font-size: 1.75em;
-         margin-top: 45px;
-         margin-left: 30px;
+         font-size: 1.5em;
+         background-color: #736CA8;
+         width: 10%;
+         height: 99.9%;
       }
 
       #node6 {
@@ -620,21 +632,24 @@
       /* Test plan and strategy */
       #node11 {
          position: absolute;
-         top: 650px;
-         left: 450px;
-         width: 135px;
-         height: 135px;
-         background: #E85642;
-         border-radius: 50%;
+         top: 576px;
+         border: 2px dotted #E85642;
+         width: 85%;
+         height: 385px;
+         margin-left: 10%;
       }
 
-      #node11 div {
+      #node11 p {
+         margin-left: 35%;
+      }
+      
+      #plan-title{
          color: white;
-         font-size: 1.75em;
-         margin-top: 20px;
-         margin-left: 20px;
+         font-size: 1.5em;
+         background-color: #E85642;
+         width: 10%;
+         height: 99.9%;
       }
-
       #node12 {
          position: absolute;
          top: 717px;
@@ -723,16 +738,16 @@
          position: absolute;
          top: 865px;
          left: 207px;
-         width: 110px;
-         height: 110px;
+         width: 95px;
+         height: 95px;
          background: #F08E81;
          border-radius: 50%;
       }
 
       #node16 div {
          color: white;
-         margin-top: 12.5px;
-         margin-left: 5px;
+         /* margin-top: 12.5px;
+         margin-left: 5px; */
       }
 
       .node16.details {
@@ -890,20 +905,26 @@
       /* Activities */
       #node24 {
          position: absolute;
-         top: 1100px;
-         left: 450px;
-         width: 120px;
-         height: 120px;
-         background: #F08705;
-         border-radius: 50%;
+         top: 972px;
+         border: 2px dotted #F5AF58;
+         width: 85%;
+         height: 385px;
+         margin-left: 10%;
       }
 
-      #node24 div {
-         color: white;
-         font-size: 1.75em;
-         margin-top: 42.5px;
-         margin-left: 5px;
+      #node24 p {
+         margin-left: 35%;
       }
+      
+      #activities-title{
+         color: white;
+         font-size: 1.5em;
+         background-color: #F5AF58;
+         width: 10%;
+         height: 99.9%;
+      }
+
+    
 
       #node35 {
          position: absolute;
@@ -1377,7 +1398,7 @@
          bottom: 0;
          left: -10em;
          z-index: 1000;
-         Margin-top: 450px;
+         Margin-top: 350px;
       }
 
       .side-menu ul {
@@ -1472,6 +1493,7 @@
          z-index: 222221;
          box-shadow: 0 0.0625em 0.25em rgba(0, 0, 0, .3);
          background: white;
+         margin-top: -20px !important;
       }
 
       .wizard {
@@ -1599,7 +1621,7 @@
       /* theme switch */
       .theme-switch {
          position: fixed;
-         margin-top: 660px;
+         margin-top: 550px;
          z-index: 55555555555;
       }
 
@@ -1731,6 +1753,10 @@
       .switch-green>.switch-input:checked~.switch-label {
          background: #4fb845;
       }
+      
+      #map {
+         margin-top: -10%;
+      }
    </style>
    <style>
       /* PRO Modal */
@@ -1795,7 +1821,7 @@
          <li id="proModalButton1" style="z-index:1000;"><a href="#">Show links<span id="proModalButton1"><i
                      class="fa fa-external-link"></i></span></a></li>
          <li style="z-index:1000;"><a
-               href="https://github.com/ekostadinov/human-driven-testing-framework/blob/master/CHANGELOG.md">Changelog<span><i
+               href="https://github.com/ekostadinov/software-testing-meta-framework/blob/master/CHANGELOG.md">Changelog<span><i
                      class="fa fa-file-text-o"></i></span></a></li>
          <!-- <li><a href="#">Accomodation<span><i class="fa fa-bed"></i></span></a></li>
                <li><a href="#">Food&Drink<span><i class="fa fa-beer"></i></span></a></li> -->
@@ -1843,16 +1869,26 @@
 
       </div>
 
-
+<div id=map>
 
       <!-- Context -->
+      <div id="context">
+         
       <div id="node1">
          <a href="#"><i class="fa fa-external-link"
                style="font-size:20px;color:grey;margin-top:-15px;visibility:hidden;"></i></a>
          <div>Shape quality</div>
       </div>
       <div id="node2">
-         <div>Context</div>
+         <div id="context-title">
+            <p>C</p>
+            <p>O</p>
+            <p>N</p>
+            <p>T</p>
+            <p>E</p>
+            <p>X</p>
+            <p>T</p>
+         </div>
       </div>
       <div id="node3">
          <a href="#"><i class="fa fa-external-link"
@@ -1887,9 +1923,7 @@
             <div class="point" style="position:absolute;left:33px;top:38px;"></div>
          </div>
       </div>
-      <div id="edge9"></div>
-      <div id="edge11"></div>
-      <div id="edge18"></div>
+      </div>
       <!-- Team -->
       <div class="team">
          <div id="node4">
@@ -1930,27 +1964,39 @@
             <div>Define the skillset</div>
          </div>
          <div id="node5">
-            <div>Team</div>
+            <div id="team-title">
+               <br>
+               <br>
+               <p>T</p>
+               <p>E</p>
+               <p>A</p>
+               <p>M</p>
+            </div>
          </div>
          <div id="node6">
             <a href="#"><i class="fa fa-external-link"
                   style="font-size:20px;color:grey;margin-top:-15px;visibility:hidden;"></i></a>
             <div><span style="margin-left: 20px !important;">Take</span> responsibility</div>
          </div>
-         <div id="edge1"></div>
-         <div class="edge1 arrow-down"></div>
-         <div id="edge2"></div>
-         <div id="edge3"></div>
-         <div id="edge6"></div>
-         <div id="edge7"></div>
+         
+         
       </div>
       <!-- Test planning & Strategy-->
       <div class="plan">
-         <div id="edge4"></div>
-         <div class="edge4 arrow-down"></div>
+         
          <div id="node11">
-            <div style="margin-left:25px; font-size: 1.45em;">Compact Test Plan </br><span
-                  style="margin-left:25px;">and</span> </br><span style="margin-left:5px;">Strategy</span></div>
+            <div id="plan-title">
+               <br>
+               <br>
+               <br>
+               <br>
+               <br>
+               <p>P</p>
+               <p>L</p>
+               <p>A</p>
+               <p>N</p>
+            </div>
+           
          </div>
          <div id="node12">
             <a href="#"><i class="fa fa-external-link"
@@ -1969,8 +2015,8 @@
          <div id="node16">
             <a href="#"><i class="fa fa-external-link"
                   style="font-size:20px;color:grey;margin-top:-15px;visibility:hidden; margin-left:90px;"></i></a>
-            <div><span style="margin-left: 25px !important;">Choose</span> Methodology of <span
-                  style="margin-left:25px;padding-top:10px">Testing</span></div>
+            <div><span style="margin-left: 25px !important;">Choose</span> <span style="margin-left: 25px !important;">Testing</span>   <span
+                  style="margin-left:4px;padding-top:10px">Methodology</span></div>
             <div style="margin-left:25px;margin-top:-2.5px;"></div>
          </div>
          <div id="node17">
@@ -1997,11 +2043,6 @@
          <div id="node23">
             <div>Managed Artifacts</div>
          </div>
-         <div id="edge8"></div>
-         <div id="edge10"></div>
-         <div id="edge12"></div>
-         <div id="edge13"></div>
-         <div id="edge14"></div>
          <div class="node12node13 plan-arrow">
             <div class="arrow" style="position:absolute;margin: 0 auto;width:100px;top:598px;left:360px;">
                <div class="curve"
@@ -2061,10 +2102,21 @@
       </div>
       <!-- Activities -->
       <div class="activity">
-         <div id="edge5"></div>
-         <div class="edge5 arrow-down"></div>
          <div id="node24">
-            <div>Activities</div>
+            <div id="activities-title">
+               <br>
+               <br>
+               <p>A</p>
+               <p>C</p>
+               <p>T</p>
+               <p style="margin-left: 39% !important;">I</p>
+               <p>V</p>
+               <p style="margin-left: 39% !important;">I</p>
+               <p>T</p>
+               <p style="margin-left: 39% !important;">I</p>
+               <p>E</p>
+               <p>S</p>
+            </div>
          </div>
          <div id="node35">
             <div><span style="margin-left: 20px !important;">Use</span> standards</div>
@@ -2102,14 +2154,12 @@
          <div id="node33">
             <a style="position: absolute;z-index: 1111111111;" href="#"><i class="fa fa-external-link"
                   style="font-size:20px;color:grey;margin-top:-15px;visibility:hidden;"></i></a>
-            <div> Deplos checking </div>
+            <div> Deploy checking </div>
          </div>
          <div id="node34">
             <div> Reporting mechanic</div>
          </div>
-         <div id="edge15"></div>
-         <div id="edge16"></div>
-         <div id="edge17"></div>
+         
          <div class="node35node25 activity-arrow">
             <div class="arrow" style="position:absolute;margin: 0 auto;width:100px;top:1008px;left:410px;">
                <div class="curve"
@@ -2177,7 +2227,7 @@
          <div>
          </div>
       </div>
-
+   </div>
 
       <!-- PRO MODAL -->
       <script>
