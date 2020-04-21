@@ -16,6 +16,10 @@
          font-weight: normal;
          font-style: normal;
       }
+      div .arrow-desc{
+         font-family: 'shadows_into_lightregular';
+         color: black;
+      }
    </style>
    <script>
       function showMapDetails() {
@@ -82,11 +86,19 @@
             bodyElem.style.backgroundColor = '#1c2754';
             bodyElem.style.color = 'white';
             document.getElementsByClassName('switch-handle')[0].style.marginLeft = '-1.5px';
+            var all = document.getElementsByClassName('arrow-desc');
+            for (var i = 0; i < all.length; i++) {
+              all[i].style.color = "white"; 
+            }
          }
          else if (document.getElementsByClassName('switch-input')[0].checked) {
             bodyElem.style.backgroundColor = 'white';
             bodyElem.style.color = 'black';
             document.getElementsByClassName('switch-handle')[0].style.marginLeft = '5.5px';
+            var all = document.getElementsByClassName('arrow-desc');
+            for (var i = 0; i < all.length; i++) {
+              all[i].style.color = "black"; 
+            }
          }
       }
    </script>
@@ -1878,6 +1890,9 @@
          <a href="#"><i class="fa fa-external-link"
                style="font-size:20px;color:grey;margin-top:-15px;visibility:hidden;"></i></a>
          <div>Shape quality</div>
+         <p class="arrow-desc" style="margin-top: -33px; margin-left: -86px;">
+            <span style="margin-left: 37px;">in the</span>  <br/> very early
+         </p>
       </div>
       <div id="node2">
          <div id="context-title">
@@ -1890,6 +1905,7 @@
             <p>T</p>
          </div>
       </div>
+      
       <div id="node3">
          <a href="#"><i class="fa fa-external-link"
                style="font-size:20px;color:grey;margin-top:-15px;visibility:hidden;"></i></a>
@@ -1907,13 +1923,16 @@
          <a href="#"><i class="fa fa-external-link"
                style="font-size:20px;color:grey;margin-top:-15px;visibility:hidden;"></i></a>
          <div>Utilize Data</div>
+         <p class="arrow-desc" style="margin-top: -51px;margin-left: 83px;">
+            to put
+         </p>
       </div>
       <div id="node38">
          <!-- <i href=""><i class="fa fa-external-link" style="font-size:20px;color:red;margin-top:-15px;visibility:hidden;"></i></a> -->
          <div>Work with stake holders</div>
       </div>
       <div id="node37">
-         <div>Put limits to Testing</div>
+         <div>Limits to Testing</div>
       </div>
       <div class="node36node37 context-arrow">
          <div class="arrow" style="position:absolute;margin: 0 auto;width:100px;top:149px;left:669px;">
@@ -1928,6 +1947,9 @@
       <div class="team">
          <div id="node4">
             <div>Set learning processes</div>
+            <p class="arrow-desc" style="margin-top: -12px;margin-left: -54px;">
+               and <br> monitor <br> for
+            </p>
          </div>
          <div class="node4node7 team-arrow">
             <div class="arrow" style="position:absolute;margin: 0 auto;width:100px;top:350px;left:255px;">
@@ -1948,12 +1970,15 @@
          <div id="node7">
             <a href="#"><i class="fa fa-external-link"
                   style="font-size:20px;color:grey;margin-top:-15px;visibility:hidden;"></i></a>
-            <div>Monitor trends</div>
+            <div>New trends</div>
          </div>
          <div id="node8">
             <a href="#"><i class="fa fa-external-link"
                   style="font-size:20px;color:grey;margin-top:-15px;visibility:hidden;"></i></a>
-            <div>Define concrete practices</div>
+            <div>Concrete practices</div>
+            <p class="arrow-desc" style="margin-top: -75px;margin-left: -31px;">
+               <span style="margin-left: 11px;">to</span>  <br> define
+            </p>
          </div>
          <div id="node9">
             <div>Identify Testing Areas</div>
@@ -2002,12 +2027,21 @@
             <a href="#"><i class="fa fa-external-link"
                   style="font-size:20px;color:grey;margin-top:-15px;visibility:hidden;"></i></a>
             <div><span style="margin-left: 5px;">Tests</span> linking</div>
+            <p class="arrow-desc" style="margin-top: -108px; margin-left: -6px;">
+               in order <br> <span style="margin-left: -13px;">to have</span>
+            </p>
          </div>
          <div id="node13">
             <div>Risks</div>
+            <p class="arrow-desc" style="margin-top: -33px; margin-left: -64px;">
+               are <br> <span style="margin-left: -33px;">transformed to</span>
+            </p>
          </div>
          <div id="node14">
             <div>Resources</div>
+            <p class="arrow-desc" style="margin-top: -92px; margin-left: 12px;">
+               to <br> <span style="margin-left: -33px;">distribute</span>
+            </p>
          </div>
          <div id="node15">
             <div><span style="margin-left: 15px !important;">QA</span> mapping</div>
@@ -2018,15 +2052,24 @@
             <div><span style="margin-left: 25px !important;">Choose</span> <span style="margin-left: 25px !important;">Testing</span>   <span
                   style="margin-left:4px;padding-top:10px">Methodology</span></div>
             <div style="margin-left:25px;margin-top:-2.5px;"></div>
+            <p class="arrow-desc" style="margin-top: -126px; margin-left: -22px;">
+               availability <br> <span style="margin-left: -3px;">guides</span>
+            </p>
          </div>
          <div id="node17">
             <div>Test levels</br> and types</div>
+            <p class="arrow-desc" style="margin-top: -44px; margin-left: -61px;">
+               dictates <br> <span style="margin-left: -2px;">appropriate</span>
+            </p>
          </div>
          <div id="node18">
             <div>Clafiry </br>Criteria</div>
          </div>
          <div id="node19">
             <div>Scope</div>
+            <p class="arrow-desc" style="margin-top: -64px; margin-left: 58px;">
+               guides <br><br> <span style="margin-left: -2px;">provided</span>
+            </p>
          </div>
          <div id="node20">
             <div>Estimations</div>
@@ -2036,6 +2079,9 @@
                   style="font-size:20px;color:grey;visibility:hidden; position: absolute;"></i></a>
             <div>CICD</div>
             <div style="padding-top: 5px;margin-top: -10px;margin-left: 5px; "> Pipelines</div>
+            <p class="arrow-desc" style=" width: 200px; margin-top: -52px; margin-left: 74px;">
+               are used <br><span style="margin-left: -2px;">to manage</span>
+            </p>
          </div>
          <div id="node22">
             <div>Environments</div>
@@ -2120,15 +2166,27 @@
          </div>
          <div id="node35">
             <div><span style="margin-left: 20px !important;">Use</span> standards</div>
+            <p class="arrow-desc" style="margin-top: -19px; margin-left: -51px;">
+               to form 
+            </p>
          </div>
          <div id="node25">
             <div>Guidelines</div>
+            <p class="arrow-desc" style="margin-top: -38px; margin-left: -51px;">
+               with <br><span style="margin-left: -2px;">detailed</span>
+            </p>
          </div>
          <div id="node26">
             <div>Better Checklists</div>
+            <p class="arrow-desc" style="margin-top: -38px; margin-left: -51px;">
+               are <br><span style="margin-left: -2px;">part of</span>
+            </p>
          </div>
          <div id="node27">
             <div>Catalogs</div>
+            <p class="arrow-desc" style="margin-top: 15px; margin-left: 0px;">
+               also <br><span style="margin-left: -33px;">incorporate</span>
+            </p>
          </div>
          <div id="node28">
             <div>Oracles</div>
@@ -2137,11 +2195,17 @@
             <a style="z-index: 11111111;position: absolute;" href="#"><i class="fa fa-external-link"
                   style="font-size:20px;color:grey;margin-top:-15px;visibility:hidden;"></i></a>
             <div>Testing cards</div>
+            <p class="arrow-desc" style="margin-top: -53px; margin-left: -28px;">
+               to <br><span style="margin-left: -12px;">form</span>
+            </p>
          </div>
          <div id="node30">
             <a style="z-index: 11111111;position: absolute;" href="#"><i class="fa fa-external-link"
                   style="font-size:20px;color:grey;margin-top:-15px;visibility:hidden;"></i></a>
             <div>Manage test sessions</div>
+            <p class="arrow-desc" style="margin-top: -34px; margin-left: 100px;">
+               followed <br><span style="margin-left: -12px;">by</span>
+            </p>
          </div>
          <div id="node31">
             <a style="z-index: 11111111;position: absolute;" href="#"><i class="fa fa-external-link"
@@ -2150,6 +2214,9 @@
          </div>
          <div id="node32">
             <div> Testing reviews </div>
+            <p class="arrow-desc" style="margin-top: 25px; margin-left: 52px;">
+               and
+            </p>
          </div>
          <div id="node33">
             <a style="position: absolute;z-index: 1111111111;" href="#"><i class="fa fa-external-link"
@@ -2200,14 +2267,7 @@
                <div class="point" style="position:absolute;left:75px;top:73px;"></div>
             </div>
          </div>
-         <div class="node29node30a activity-arrow">
-            <div class="arrow" style="position:absolute;margin: 0 auto;width:100px;top:1253px;left:513px;">
-               <div class="curve"
-                  style="border:2px solid #F5AF58;border-color:transparent transparent #F5AF58 transparent;height:50px;width: 40px;border-radius:230px 0 0 150px;">
-               </div>
-               <div class="point" style="position:absolute;left:75px;top:73px;"></div>
-            </div>
-         </div>
+        
          <div class="node30node31 activity-arrow">
             <div class="arrow" style="position:absolute;margin: 0 auto;width:100px;top:1253px;left:613px;">
                <div class="curve"
